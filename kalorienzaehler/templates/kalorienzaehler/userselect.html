@@ -1,0 +1,34 @@
+<p>Dieses Programm verschafft Ihnen einen guten Überblick über Ihre Ernährung.<br>
+Sie möchten Ihr Gewicht halten oder etwas abnehmen? Dann tragen Sie täglich Ihren kcal Bedarf ein.</p>
+
+<p>Wenn Sie beruflich und privat viel Sitzen wählen Sie User1 mit 2000 kcal.<br>
+Wenn Sie sich am Tag beruflich und privat viel bewegen wählen Sie User2 mit 2500 kcal.</p>
+
+<p>Info:<br>
+Das Programm beinhaltet einen durchschnittlichen kcal Verbrauch.<br>
+Der Bedarf hängt selbstverständlich vom Geschlecht, Alter ,Gewicht und der alltäglichen beruflichen oder privaten Tätigkeit ab. Die folgenden Anzahlen demonstrieren nur einen durchschnittlichen Wert.</p>
+
+<p>Frau:<br>
+Alter von 15-19  ist der kcal Bedarf bei 2500 kcal.<br>
+Alter von 19-25  ist der kcal Bedarf bei 2400 kcal.<br>
+Alter von 25-51  ist der kcal Bedarf bei 2300 kcal.<br>
+Alter von 51-65  ist der kcal Bedarf bei 2000 kcal.</p>
+<p>Mann:
+Alter von 15-65  ist der kcal Bedarf zwischen 2500-3000 kcal <br>
+Durchschnittlich ist der Bedarf dennoch bei ca 2500 kcal <br>
+Alter über 65 ist der Bedarf bei ca 2300 kcal</p>
+
+
+<form  id="auswahl" action="{% url 'home' 'User1' %}" method="get">
+  {% csrf_token %}
+  {{form.as_p}}
+
+  <button type="submit">Weiter</button>
+</form>
+<script type="text/javascript">
+
+function changed(radio){
+  auswahl = document.getElementById('auswahl');
+  auswahl.action = "/calories/" + radio.value + "/";
+}
+</script>

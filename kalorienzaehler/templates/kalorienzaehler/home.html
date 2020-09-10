@@ -1,0 +1,17 @@
+<p>Um einen Überblick zu verschaffen ob und wann Ihr Kcal bedarf gedeckt ist, tragen Sie Ihre Mahlzeiten mit den Kcal ein. <br>
+Falls Sie sich vertippt haben können Sie den Eintrag ganz leicht mit der Delete Funktion löschen.</p>
+
+
+
+
+<h2>Mahlzeiten:</h2>
+<form action="{% url 'home' user %}" method="post">
+  {% csrf_token %}
+  {{form}}
+  {{formset.as_p}}
+  <p>{{caloriesLeft}} Kilokalorien übrig</p>
+  {% if message %}
+  <p>{{message}}</p>
+  {% endif %}
+  <button type="submit">Eintragen</button><a href="{% url 'userselectview' %}">Userauswahl</a>
+</form>
